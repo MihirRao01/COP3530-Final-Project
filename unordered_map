@@ -73,3 +73,19 @@ set<string> unordered_map::get_set(string key) {
     }
     return s1;
 }
+
+bool unordered_map::validInput(string key) {
+
+    // This will find the hash value of the key in order to get its index value
+    int index = hash(key);
+
+    // Based on the index value, the for loop will run for the length of the linked list in order to see
+    // whether the key exists
+    for(auto it = table[index].begin(); it != table[index].end(); ++it){
+        if(it->first == key){
+            return true;
+        }
+    }
+
+    return false;
+}
